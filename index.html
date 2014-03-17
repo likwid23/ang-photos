@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="MyFlickrApp">
+<meta charset=utf-8>
+<title>Photo Viewer</title>
+<head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+<script src="js/flickr.js"></script>
+<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+								   });
+	</script>		
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+<link rel="stylesheet" href="css/main.css">
+<head>
+<body>
+<div style="padding-left:120px;padding-top:20px"><img src="img/AngularJS-large.png" width="200" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/flickr-logo.jpg" width="125" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/download.jpg" width="112" height="25"></div>
+
+<div class="grid" ng-controller="FlickrController">
+  <div class="box" ng-repeat="item in feeds.items">
+   <a class="fancybox" href="{{item.media.m}}" data-fancybox-group="gallery" title="{{item.title}}"><img width="100%" ng-src="{{item.media.m}}"></a>
+   <div>{{item.title}}</div>
+</div>
+</div>
+</body>
+</head>
